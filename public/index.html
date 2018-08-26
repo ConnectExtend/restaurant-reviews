@@ -1,0 +1,63 @@
+<!-- version 2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Normalize.css for better cross-browser consistency -->
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- insert script for SW -->
+  <title>Restaurant Reviews</title>
+</head>
+
+<body>
+  <div id="modal-container"></div>
+  <div id="wrapper">
+    <main id="main-content">
+      <h1 id="main-heading">
+        <a href="/">Restaurant Reviews</a>
+      </h1>
+
+      <section id="map-container">
+        <div id="map"></div>
+      </section>
+
+      <section>
+        <div id="filter-options">
+          <!-- insert ARIA <label></label>  -->
+          <form role="form">
+            <select id="cuisines-select" name="cuisines">
+              <option value="all">&#128269; All Cuisines</option>
+            </select>
+          </form>
+
+          <!-- insert ARIA <label></label>  -->
+          <form role="form">
+            <select id="cuisines-select" name="cuisines">
+              <option value="all">&#128269; All Neighborhoods</option>
+            </select>
+          </form>
+
+          <!-- insert ARIA <label></label>  -->
+          <form role="form">
+            <select id="cuisines-select" name="cuisines">
+              <option value="all">&#128269; Cost</option>
+            </select>
+          </form>
+        </div>
+        <div id="card-container"></div>
+      </section>
+    </main> <!-- main-content -->
+  </div> <!-- content -->
+
+  <footer id="footer">
+    Copyright &copy; 2018 <a href="/"><strong>Restaurant Reviews</strong></a>
+    <p>All Rights Reserved.</p>
+  </footer>
+</body>
+
+</html>

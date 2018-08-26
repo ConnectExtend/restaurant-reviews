@@ -1,0 +1,112 @@
+:root {
+  --hover-color: #d4d4d4;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #fdfdfd;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+#wrapper {
+  flex: 1 0 auto;
+}
+
+#main-heading {
+  font-size: 1.5em;
+  font-weight: 200;
+  letter-spacing: 5px;
+  padding: 20px 0;
+  text-transform: uppercase;
+  background-color: #0e2668;
+  text-align: center;
+  width: 100%;
+}
+
+button:hover,
+button:focus {
+  text-decoration: none;
+  color: var(--hover-color);
+}
+
+#main-heading a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#main-heading a:hover {
+  text-decoration: none;
+  color: var(--hover-color);
+}
+
+#map {
+  height: 380px;
+  width: 100%;
+  background-color: #ccc;
+}
+
+#filter-options {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: #4b86b4;
+}
+
+#filter-options select {
+  background-color: #fff;
+  border: 1px solid #fff;
+  font-size: 1.2em;
+  height: 35px;
+  margin: 20px 35px 15px 0;
+  padding: 0 8px;
+  width: 285px;
+}
+
+#restaurants-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  background-color: #f3f3f3;
+  list-style: outside none none;
+  margin: 0;
+  padding: 30px 15px 60px;
+  /* text-align: center; */
+}
+
+#footer {
+  background-color: #aaa;
+  color: #1c1c1c;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 12px 0 7px;
+  text-align: center;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+#footer p {
+  font-size: inherit;
+}
+
+#footer a {
+  color: #0e2668;
+  text-decoration: none;
+}
