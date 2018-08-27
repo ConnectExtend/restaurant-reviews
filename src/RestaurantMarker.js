@@ -10,6 +10,12 @@ export class RestaurantMarker extends React.Component {
     MARKERS.forEach(marker => marker._close());
   }
 
+  static getFittingBounds() {
+    const bounds = new window.google.maps.LatLngBounds();
+    MARKERS.forEach(m => bounds.extend(m.props.position));
+    return bounds;
+  }
+
   state = { open: false };
 
   constructor() {
@@ -19,6 +25,10 @@ export class RestaurantMarker extends React.Component {
 
   get restaurant() {
     return this.props.restaurant;
+  }
+
+  get location() {
+    return this.restaurant.location;
   }
 
   _open() {
@@ -56,7 +66,7 @@ export class RestaurantMarker extends React.Component {
             </p>
             <p>{location.address}</p>
             <p>
-              {location.postal_code} {location.city}
+              {location.postalCode} {location.city}
             </p>
             <p className='restaurant-categories'>
               {restaurant.categories.join(', ')}

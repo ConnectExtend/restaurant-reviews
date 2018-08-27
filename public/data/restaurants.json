@@ -9,7 +9,7 @@
         "lat": 41.894350,
         "lng": 12.490120,
         "address": "Via della Madonna dei Monti 62",
-        "postal_code": "00184",
+        "postalCode": "00184",
         "city": "Roma",
         "neighborhood": "Monti" 
       },
@@ -27,7 +27,7 @@
         "lat": 41.890300,
         "lng": 12.468110,
         "address": "Vicolo del Leopardo 39A",
-        "postal_code": "00153",
+        "postalCode": "00153",
         "city": "Roma",
         "neighborhood": "Trastevere" 
       },
@@ -44,7 +44,7 @@
         "lat": 41.893120,
         "lng": 12.472370,
         "address": "Via del Pellegrino 11",
-        "postal_code": "00186",
+        "postalCode": "00186",
         "city": "Roma",
         "neighborhood": "Centro Storico" 
       },
@@ -61,7 +61,7 @@
         "lat": 41.894920,
         "lng": 12.499010,
         "address": "Via Giovanni Lanza 102",
-        "postal_code": "00184",
+        "postalCode": "00184",
         "city": "Roma",
         "neighborhood": "Monti" 
       },
@@ -78,7 +78,7 @@
         "lat": 41.875090,
         "lng": 12.479436,
         "address": "Via Giuseppe Giulietti 21A",
-        "postal_code": "00154",
+        "postalCode": "00154",
         "city": "Roma",
         "neighborhood": "Testaccio" 
       },
@@ -87,17 +87,17 @@
       ]
     },
     {
-      "name": "Waraku",
-      "yelp-id": "AFQQqXIuj7h_bnj5QNrrSQ",
-      "price": 3,
+      "name": "Kisaki",
+      "yelp-id": "J5K5rgwxaoJNNebwusk3Eg",
+      "price": 2,
       "photo": "waraku.jpeg",
       "location": {
-        "lat": 41.893880,
-        "lng": 12.550300,
-        "address": "Via Prenestina 321A",
-        "postal_code": "00177",
+        "lat": 41.899810,
+        "lng": 12.477830,
+        "address": "Piazza Capranica 75",
+        "postalCode": "00186",
         "city": "Roma",
-        "neighborhood": "Pigneto" 
+        "neighborhood": "Centro Storico" 
       },
       "categories": [
         "Ramen"
@@ -112,7 +112,7 @@
         "lat": 41.889380,
         "lng": 12.476440,
         "address": "Piazza della Gensola 15",
-        "postal_code": "00153",
+        "postalCode": "00153",
         "city": "Roma",
         "neighborhood": "Trastevere" 
       },
@@ -129,7 +129,7 @@
         "lat": 41.897230,
         "lng": 12.476460,
         "address": "Via di Torre Argentina 3",
-        "postal_code": "00186",
+        "postalCode": "00186",
         "city": "Roma",
         "neighborhood": "Centro Storico" 
       },
@@ -146,7 +146,7 @@
         "lat": 41.879620,
         "lng": 12.473700,
         "address": "Via Giovanni Branca 88",
-        "postal_code": "00153",
+        "postalCode": "00153",
         "city": "Roma",
         "neighborhood": "Testaccio" 
       },

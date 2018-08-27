@@ -1,11 +1,42 @@
 .detail-modal {
-  position: absolute;
+  outline: none;
   display: flex;
+  flex-direction: column;
+  position: absolute;
   top: 40px;
   left: 40px;
   right: 40px;
   bottom: 40px;
   background-color: rgb(240, 235, 235);
+  border-radius: 5px;
+}
+
+.detail-modal li {
+  display: inherit;
+}
+
+.detail-modal-map {
+  padding-top: 5px;
+  overflow: hidden;
+  position: relative;
+  align-self: center;
+  margin: auto;
+}
+
+.modal-content {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-titlebar {
+  flex-direction: row;
+  background-color: rgba(141, 121, 121, 0.5);
+}
+
+.modal-heading {
+  margin-left: auto;
+  align-self: center;
 }
 
 .detail-modal-overlay {
@@ -15,4 +46,32 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-close-button::before {
+  content: 'X';
+}
+
+.modal-close-button {
+  margin-left: auto;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  padding: 3px 7px 1px 7px;
+  font-size: 1.5em;
+  align-self: flex-end;
+  background-size: 0;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  border-radius: 0 5px 0 0;
+  background-color: var(--card-red);
+  color: #fff;
+}
+
+.modal-error {
+  margin: 0 auto;
+  text-align: center;
+  align-self: center;
 }

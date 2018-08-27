@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RestaurantMarker } from './RestaurantMarker';
-import { compose, withProps } from "recompose"
+import { compose, withProps, withHandlers } from "recompose"
 import registerServiceWorker from './registerServiceWorker';
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
 import { Utils } from './Utils';
 import { Data } from './Data';
 import { RestaurantCard } from './RestaurantCard';
 import { RestaurantModal } from './RestaurantModal';
+import ReactModal from 'react-modal';
 
 const CARD_CONTAINER = document.querySelector('#card-container');
 const MAP_CONTAINER = document.querySelector('#map-container');
@@ -15,6 +16,8 @@ const DEFAULT_CENTER = { lat: 41.8878, lng: 12.5064 };
 const DEFAULT_ZOOM = 13;
 const MODAL_CONTAINER = document.querySelector('#modal-container');
 const DETAIL_MODAL = ReactDOM.render(<RestaurantModal />, MODAL_CONTAINER);
+
+ReactModal.setAppElement('#wrapper');
 
 Utils.getMapsKey().then(key => {
 
@@ -40,7 +43,6 @@ Utils.getMapsKey().then(key => {
           }
         }
         defaultZoom={DEFAULT_ZOOM}
-        onClick={RestaurantMarker.closeAllMarkers}
         defaultCenter={DEFAULT_CENTER}
       >
         {

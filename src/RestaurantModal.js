@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import { Utils } from './Utils';
 import './Loading.css';
-import './RestaurantModal.css'
+import './RestaurantModal.css';
 
 export class RestaurantModal extends React.Component {
 
@@ -11,11 +12,14 @@ export class RestaurantModal extends React.Component {
   open(restaurant) {
     return new Promise((resolve, reject) => {
       this.setState({ isOpen: true, loaded: false });
-      this._load(restaurant).then(() => {
-        this.setState({ loaded: true })
+      Promise.all([this._load(restaurant), Utils.getMapsKey()]).then(values => {
+        this.setState({ loaded: true, mapsKey: values[1], error: undefined });
         resolve(this.state);
       })
-      .catch(err => reject(err));
+      .catch(err => {
+        this.setState({ error: err });
+        reject(err)
+      });
     });
   }
 
@@ -39,14 +43,28 @@ export class RestaurantModal extends React.Component {
       onRequestClose: () => this.close.bind(this)(),
       contentLabel: "Restaurant Details",
       className: "detail-modal",
+      ref: "modal",
       overlayClassName: "detail-modal-overlay"
     };
+
+
+    if (this.state.error) {
+      return (
+        <ReactModal {...props}>
+          <strong className='modal-error'>
+            <p>An error occured:</p>
+            {this.state.error.message || this.state.error}
+            <p>Refresh the page and try again or use Esc to close this dialog.</p>
+          </strong>
+        </ReactModal>
+      )
+    }
 
     if (!this.state.loaded) {
       return (
         <ReactModal {...props}>
-          <div class="lds-css ng-scope">
-            <div class="lds-double-ring">
+          <div className="lds-css ng-scope">
+            <div className="lds-double-ring">
               <div />
               <div />
             </div>
@@ -57,10 +75,33 @@ export class RestaurantModal extends React.Component {
 
     const restaurant = this.state.restaurant;
     const location = restaurant.location;
+    const mapsKey = this.state.mapsKey;
 
     return (
       <ReactModal {...props}>
-        <p>{restaurant.name}</p>
+        <ul className="modal-content">
+          <li className="modal-titlebar">
+            <h2 className="modal-heading">{restaurant.name}</h2>
+            <button className="modal-close-button" onClick={props.onRequestClose} />
+          </li>
+          <li>
+            <img 
+              className="detail-modal-map"
+              src={Utils.getStaticMap(mapsKey, {
+                lat: location.lat,
+                lng: location.lng,
+                height: 300,
+                width: 640,
+                markers: [
+                  {
+                    lat: location.lat,
+                    lng: location.lng,
+                  }
+                ]
+              })}
+            />
+          </li>
+        </ul>
       </ReactModal>
     );
   }
