@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import { Utils } from './Utils';
+import { Utils, crossFetch } from './Utils';
+import { Review } from './Review';
+import { Data } from './Data';
 import './Loading.css';
 import './RestaurantModal.css';
 
@@ -12,14 +14,7 @@ export class RestaurantModal extends React.Component {
   open(restaurant) {
     return new Promise((resolve, reject) => {
       this.setState({ isOpen: true, loaded: false });
-      Promise.all([this._load(restaurant), Utils.getMapsKey()]).then(values => {
-        this.setState({ loaded: true, mapsKey: values[1], error: undefined });
-        resolve(this.state);
-      })
-      .catch(err => {
-        this.setState({ error: err });
-        reject(err)
-      });
+      this._load(restaurant).then(() => this.setState({ loaded: true }))
     });
   }
 
@@ -28,7 +23,26 @@ export class RestaurantModal extends React.Component {
       this.setState({
         restaurant: restaurant
       });
-      resolve(this.state);
+      Utils.getMapsKey().then(mapsKey => {
+        const neededData = [
+          Utils.getYelpKey(),
+          Data.getReviews(mapsKey, restaurant)
+        ];
+        Promise.all(neededData).then(values => {
+          this.setState({ 
+            loaded: true,
+            mapsKey: mapsKey,
+            yelpKey: values[0],
+            error: undefined,
+            reviews: values[1]
+          });
+          resolve();
+        })
+        .catch(err => {
+          this.setState({ error: err.message });
+          reject(err);
+        });
+      })
     });
   }
 
@@ -85,7 +99,7 @@ export class RestaurantModal extends React.Component {
             <button className="modal-close-button" onClick={props.onRequestClose} />
           </li>
           <li>
-            <img 
+            <img
               className="detail-modal-map"
               src={Utils.getStaticMap(mapsKey, {
                 lat: location.lat,
@@ -100,6 +114,9 @@ export class RestaurantModal extends React.Component {
                 ]
               })}
             />
+          </li>
+          <li>
+            {<Review review={Review.getLongest(this.state.reviews)}/>}
           </li>
         </ul>
       </ReactModal>

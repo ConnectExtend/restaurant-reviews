@@ -7,7 +7,9 @@
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",
     "react-modal": "^3.5.1",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "react-star-rating-component": "^1.4.1",
+    "react-text-truncate": "^0.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

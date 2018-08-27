@@ -2,14 +2,15 @@
   "restaurants": [
     {
       "name": "La Casetta a Monti",
-      "yelp-id": "DRCE85Ng71YlKYeXcLcrRw",
+      "yelp_id": "DRCE85Ng71YlKYeXcLcrRw",
+      "place_id": "ChIJTf-1ZLFhLxMRKZMRFr4hH7k",
       "price": 2,
       "photo": "lacasettaamonti.jpg",
       "location": {
         "lat": 41.894350,
         "lng": 12.490120,
         "address": "Via della Madonna dei Monti 62",
-        "postalCode": "00184",
+        "postal_code": "00184",
         "city": "Roma",
         "neighborhood": "Monti" 
       },
@@ -20,14 +21,15 @@
     },
     {
       "name": "La Botticella",
-      "yelp-id": "Gedwawjli9J8xz-HBttP3w",
+      "yelp_id": "Gedwawjli9J8xz-HBttP3w",
+      "place_id": "ChIJg_trXkdgLxMR-Mu1esO5r9g",
       "price": 2,
       "photo": "labotticella.jpg",
       "location": {
         "lat": 41.890300,
         "lng": 12.468110,
         "address": "Vicolo del Leopardo 39A",
-        "postalCode": "00153",
+        "postal_code": "00153",
         "city": "Roma",
         "neighborhood": "Trastevere" 
       },
@@ -37,14 +39,15 @@
     },
     {
       "name": "Osteria da Fortunata",
-      "yelp-id": "USo4XWhi2NihR19wRbEYGA",
+      "yelp_id": "USo4XWhi2NihR19wRbEYGA",
+      "place_id": "ChIJJ_LhjUVgLxMRiRPTJRtTk-M",
       "price": 2,
       "photo": "osteriadafortunata.jpg",
       "location": {
         "lat": 41.893120,
         "lng": 12.472370,
         "address": "Via del Pellegrino 11",
-        "postalCode": "00186",
+        "postal_code": "00186",
         "city": "Roma",
         "neighborhood": "Centro Storico" 
       },
@@ -54,14 +57,15 @@
     },
     {
       "name": "Sapori e Delizie",
-      "yelp-id": "alzlKGqlBbfz3-U1dJfIJg",
+      "yelp_id": "alzlKGqlBbfz3-U1dJfIJg",
+      "place_id": "ChIJF4xWFrthLxMRNwZ9j9VBVJo",
       "price": 1,
       "photo": "saporiedelizie.jpg",
       "location": {
         "lat": 41.894920,
         "lng": 12.499010,
         "address": "Via Giovanni Lanza 102",
-        "postalCode": "00184",
+        "postal_code": "00184",
         "city": "Roma",
         "neighborhood": "Monti" 
       },
@@ -71,14 +75,15 @@
     },
     {
       "name": "Sushisen",
-      "yelp-id": "CABiMdDaj1w1jWUAKl_RNw",
+      "yelp_id": "CABiMdDaj1w1jWUAKl_RNw",
+      "place_id": "ChIJYQt9FCxgLxMRFyv95Ul5P-U",
       "price": 3,
       "photo": "sushisen.jpg",
       "location": {
         "lat": 41.875090,
         "lng": 12.479436,
         "address": "Via Giuseppe Giulietti 21A",
-        "postalCode": "00154",
+        "postal_code": "00154",
         "city": "Roma",
         "neighborhood": "Testaccio" 
       },
@@ -88,14 +93,15 @@
     },
     {
       "name": "Kisaki",
-      "yelp-id": "J5K5rgwxaoJNNebwusk3Eg",
+      "yelp_id": "J5K5rgwxaoJNNebwusk3Eg",
+      "place_id": "ChIJ1SqV9FFgLxMRmzOCXdoR0lg",
       "price": 2,
       "photo": "waraku.jpeg",
       "location": {
         "lat": 41.899810,
         "lng": 12.477830,
         "address": "Piazza Capranica 75",
-        "postalCode": "00186",
+        "postal_code": "00186",
         "city": "Roma",
         "neighborhood": "Centro Storico" 
       },
@@ -105,14 +111,15 @@
     },
     {
       "name": "La Gensola",
-      "yelp-id": "TxmemYXuyT0YISlVqG_qoA",
+      "yelp_id": "TxmemYXuyT0YISlVqG_qoA",
+      "place_id": "ChIJm9OoNThgLxMRuNhzBMkwl_A",
       "price": 3,
       "photo": "lagensola.jpg",
       "location": {
         "lat": 41.889380,
         "lng": 12.476440,
         "address": "Piazza della Gensola 15",
-        "postalCode": "00153",
+        "postal_code": "00153",
         "city": "Roma",
         "neighborhood": "Trastevere" 
       },
@@ -122,14 +129,15 @@
     },
     {
       "name": "Pandali",
-      "yelp-id": "ii6miK-tH3lCwsab6FA-VQ",
+      "yelp_id": "ii6miK-tH3lCwsab6FA-VQ",
+      "place_id": "ChIJ1QJ8Q05gLxMRaHDj2rB-bAU",
       "price": 1,
       "photo": "pandali.jpg",
       "location": {
         "lat": 41.897230,
         "lng": 12.476460,
         "address": "Via di Torre Argentina 3",
-        "postalCode": "00186",
+        "postal_code": "00186",
         "city": "Roma",
         "neighborhood": "Centro Storico" 
       },
@@ -139,14 +147,15 @@
     },
     {
       "name": "Trapizzino",
-      "yelp-id": "scgJwUnCA87cd757-koCnw",
+      "yelp_id": "scgJwUnCA87cd757-koCnw",
+      "place_id": "ChIJhS8gpEdgLxMRYa6Yo9dyRnY",
       "price": 1,
       "photo": "trapizzino.png",
       "location": {
         "lat": 41.879620,
         "lng": 12.473700,
         "address": "Via Giovanni Branca 88",
-        "postalCode": "00153",
+        "postal_code": "00153",
         "city": "Roma",
         "neighborhood": "Testaccio" 
       },

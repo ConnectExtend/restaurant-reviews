@@ -1,16 +1,28 @@
 export class Utils {
   
-  static getMapsKey() {
+  static getSetting(setting) {
     return new Promise((resolve, reject) => {
       fetch('./data/settings.json')
         .then(resp => resp.json())
-        .then(json => resolve(json.maps_key))
-        .catch(err => reject(err));
+        .then(json => resolve(json[setting]))
+        .catch(reject)
     });
+  }
+
+  static getMapsKey() {
+    return Utils.getSetting('maps_key');
+  }
+
+  static getYelpKey() {
+    return Utils.getSetting('yelp_key');
   }
 
   static getMapsURL(key) {
     return `https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`
+  }
+
+  static crossFetch(url, data) {
+    return fetch(`https://cors-anywhere.herokuapp.com/${url}`, data);
   }
 
   /**

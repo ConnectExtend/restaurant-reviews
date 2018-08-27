@@ -66,7 +66,7 @@ export class RestaurantMarker extends React.Component {
             </p>
             <p>{location.address}</p>
             <p>
-              {location.postalCode} {location.city}
+              {location['postal_code']} {location.city}
             </p>
             <p className='restaurant-categories'>
               {restaurant.categories.join(', ')}

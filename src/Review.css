@@ -1,0 +1,22 @@
+.review,
+.review-content,
+.review-info,
+.review-link {
+  display: flex;
+}
+
+.review-content {
+  flex-direction: column;
+}
+
+.review-info {
+  justify-content: space-between;
+}
+
+.review-avatar {
+  align-self: flex-start;
+}
+
+.review-text {
+  line-height: 1.2em;
+}
