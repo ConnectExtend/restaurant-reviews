@@ -1,22 +1,26 @@
 .review,
 .review-content,
-.review-info,
-.review-link {
+.review-info
+.detail-holder
+.detail-holder li {
   display: flex;
 }
 
+.detail-holder {
+  flex-direction: row;
+}
+
 .review-content {
+  padding: 15px;
   flex-direction: column;
-}
-
-.review-info {
-  justify-content: space-between;
-}
-
-.review-avatar {
-  align-self: flex-start;
+  align-content: flex-end;
 }
 
 .review-text {
-  line-height: 1.2em;
+  line-height: 1.4em;
+}
+
+.dv-star-rating {
+  font-size: 1.25em;
+  position: relative;
 }

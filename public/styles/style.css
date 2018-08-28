@@ -10,6 +10,11 @@
   padding: 0;
 }
 
+ul,
+li {
+  list-style: outside none none;
+}
+
 html, body {
   height: 100%;
 }
@@ -24,6 +29,12 @@ body {
   flex-direction: column;
 }
 
+button:hover,
+button:focus {
+  text-decoration: none;
+  color: var(--hover-color);
+}
+
 #wrapper {
   flex: 1 0 auto;
 }
@@ -32,17 +43,13 @@ body {
   font-size: 1.5em;
   font-weight: 200;
   letter-spacing: 5px;
+  word-spacing: .5em;
   padding: 20px 0;
+  text-align: center;
   text-transform: uppercase;
   background-color: #0e2668;
-  text-align: center;
   width: 100%;
-}
 
-button:hover,
-button:focus {
-  text-decoration: none;
-  color: var(--hover-color);
 }
 
 #main-heading a {
@@ -85,10 +92,8 @@ button:focus {
   flex-flow: row wrap;
   justify-content: center;
   background-color: #f3f3f3;
-  list-style: outside none none;
   margin: 0;
   padding: 30px 15px 60px;
-  /* text-align: center; */
 }
 
 #footer {

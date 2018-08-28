@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import { Utils, crossFetch } from './Utils';
+import { Utils } from './Utils';
+import { Hours } from './Hours';
 import { Review } from './Review';
 import { Data } from './Data';
+import { Scrollbars } from 'react-custom-scrollbars';
+
 import './Loading.css';
 import './RestaurantModal.css';
 
@@ -20,34 +23,52 @@ export class RestaurantModal extends React.Component {
 
   _load(restaurant) {
     return new Promise((resolve, reject) => {
+
       this.setState({
         restaurant: restaurant
       });
-      Utils.getMapsKey().then(mapsKey => {
+
+      Promise.all([Utils.getMapsKey(), Utils.getYelpKey()]).then(keys => {
+
         const neededData = [
-          Utils.getYelpKey(),
-          Data.getReviews(mapsKey, restaurant)
+          Data.getReviews(keys[0], restaurant),
+          Data.getHours(keys[1], restaurant)
         ];
-        Promise.all(neededData).then(values => {
-          this.setState({ 
+
+        Promise.all(neededData).then(info => {
+          this.setState({
             loaded: true,
-            mapsKey: mapsKey,
-            yelpKey: values[0],
+            mapsKey: keys[0],
+            yelpKey: keys[1],
             error: undefined,
-            reviews: values[1]
+            reviews: info[0],
+            hours: info[1]
           });
           resolve();
-        })
-        .catch(err => {
-          this.setState({ error: err.message });
+        }).catch(err => {
+          this.setState({ error: err || err.message });
           reject(err);
         });
+
       })
+
     });
   }
 
   close() {
     this.setState({ isOpen: false });
+  }
+
+  _getReviews(amount) {
+    const reviews = this.state.reviews;
+
+    if (reviews) {
+      return reviews.splice(0, amount).map(review => 
+        <Review key={review.author_name} review={review} />
+      );
+    }
+
+    return <strong style={{ 'padding-left': '10px' }}>No reviews!</strong>
   }
 
   render() {
@@ -56,20 +77,20 @@ export class RestaurantModal extends React.Component {
       isOpen: this.state.isOpen,
       onRequestClose: () => this.close.bind(this)(),
       contentLabel: "Restaurant Details",
-      className: "detail-modal",
-      ref: "modal",
-      overlayClassName: "detail-modal-overlay"
+      className: "modal",
+      overlayClassName: "modal-overlay"
     };
-
 
     if (this.state.error) {
       return (
         <ReactModal {...props}>
-          <strong className='modal-error'>
-            <p>An error occured:</p>
+          <p className="modal-error">
+            An error occured:
+            <br />
             {this.state.error.message || this.state.error}
-            <p>Refresh the page and try again or use Esc to close this dialog.</p>
-          </strong>
+            <br />
+            Refresh the page and try again or use Esc to close this dialog.
+          </p>
         </ReactModal>
       )
     }
@@ -95,28 +116,39 @@ export class RestaurantModal extends React.Component {
       <ReactModal {...props}>
         <ul className="modal-content">
           <li className="modal-titlebar">
-            <h2 className="modal-heading">{restaurant.name}</h2>
-            <button className="modal-close-button" onClick={props.onRequestClose} />
+            <h2 className="modal-heading">
+              {restaurant.name}
+            </h2>
+            <button className="modal-close-button" onClick={this.close.bind(this)}/>
           </li>
-          <li>
+
+          <li className="modal-map-container">
             <img
-              className="detail-modal-map"
-              src={Utils.getStaticMap(mapsKey, {
-                lat: location.lat,
-                lng: location.lng,
-                height: 300,
-                width: 640,
-                markers: [
-                  {
-                    lat: location.lat,
-                    lng: location.lng,
-                  }
-                ]
-              })}
-            />
+                className="modal-map"
+                src={Utils.getStaticMap(mapsKey, {
+                  lat: location.lat,
+                  lng: location.lng,
+                  height: 300,
+                  width: 640,
+                  markers: [
+                    {
+                      lat: location.lat,
+                      lng: location.lng,
+                    }
+                  ]
+                })}
+              />
           </li>
+
           <li>
-            {<Review review={Review.getLongest(this.state.reviews)}/>}
+            <ul className="modal-reviews-hours">
+              <li className="modal-hours">
+                <Hours key={location.lat} hours={this.state.hours}/>
+              </li>
+              <li className="modal-reviews">
+                {this._getReviews(2)}
+              </li>
+            </ul>
           </li>
         </ul>
       </ReactModal>

@@ -20,20 +20,17 @@ export class Review extends React.Component {
     const review = this.props.review;
     return (
       <ul className="review">
-        <li className="review-avatar">
-          <a className="review-link" href={review['author_url']}>
-            <img src={review['profile_photo_url'].replace('s128', 's40')} alt="Reviewer's avatar"/>
-          </a>
-        </li>
         <li className="review-content">
           <div className="review-info">
+            <strong className="review-author">{review['author_name']}</strong>
+            <span>&nbsp;- {review.relative_time_description}</span>
+          </div>
+          <div>
             <StarRatingComponent
-              name="rating"
               editing={false}
+              name="review-star"
               value={review.rating}
-              starCount={5}
-            />
-            <p>{review.relative_time_description}</p>
+            />            
           </div>
           <TextTruncate
             text={review.text}

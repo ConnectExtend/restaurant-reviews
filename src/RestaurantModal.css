@@ -1,51 +1,49 @@
-.detail-modal {
-  outline: none;
+.modal,
+.modal-titlebar,
+.modal-content,
+.modal-map-container,
+.modal-hours {
   display: flex;
+}
+
+.modal {
   flex-direction: column;
   position: absolute;
+  overflow: auto;
   top: 40px;
   left: 40px;
   right: 40px;
   bottom: 40px;
   background-color: rgb(240, 235, 235);
   border-radius: 5px;
+  outline: none;
 }
 
-.detail-modal li {
-  display: inherit;
-}
-
-.detail-modal-map {
-  padding-top: 5px;
+/* prevents scrolling behind modal */
+.ReactModal__Body--open {
   overflow: hidden;
-  position: relative;
-  align-self: center;
-  margin: auto;
 }
 
 .modal-content {
-  list-style: none;
-  display: flex;
   flex-direction: column;
+  border-radius: inherit;
+  max-height: 100%;
 }
 
 .modal-titlebar {
-  flex-direction: row;
-  background-color: rgba(141, 121, 121, 0.5);
+  background-color: #BFB2B2;
+  flex-shrink: 0;
+  min-width: calc(100% - (40px * 2));
+  position: fixed;
+  z-index: 999;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  flex-flow: row nowrap;
 }
 
 .modal-heading {
-  margin-left: auto;
   align-self: center;
-}
-
-.detail-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin-left: auto;
 }
 
 .modal-close-button::before {
@@ -53,13 +51,13 @@
 }
 
 .modal-close-button {
+  flex-basis: content;
   margin-left: auto;
   outline: none;
   background-color: rgba(0, 0, 0, 0);
   border: 0;
   padding: 3px 7px 1px 7px;
   font-size: 1.5em;
-  align-self: flex-end;
   background-size: 0;
 }
 
@@ -70,8 +68,38 @@
   color: #fff;
 }
 
+.modal-map-container {
+  overflow: hidden;
+  margin-top: 20px;
+  min-height: 300px;
+  justify-content: center;
+}
+
+.modal-map {
+  margin-top: 20px;
+  display: block;
+}
+
+.modal-reviews-hours {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-hours {
+  min-width: 45%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .modal-error {
-  margin: 0 auto;
+  margin: auto;
+  line-height: 3em;
   text-align: center;
-  align-self: center;
 }
