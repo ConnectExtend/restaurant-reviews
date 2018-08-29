@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import { Utils } from './Utils';
-import { Hours } from './Hours';
-import { Review } from './Review';
-import { Data } from './Data';
+import Utils from './Utils';
+import Hours from './Hours';
+import Review from './Review';
+import Data from './Data';
 
 import './Loading.css';
 import './RestaurantModal.css';
 
-export class RestaurantModal extends React.Component {
+class RestaurantModal extends React.Component {
 
   state = { open: false, loaded: false };
 
@@ -16,7 +16,11 @@ export class RestaurantModal extends React.Component {
   open(restaurant) {
     return new Promise((resolve, reject) => {
       this.setState({ isOpen: true, loaded: false });
-      this._load(restaurant).then(() => this.setState({ loaded: true }))
+      this._load(restaurant).then(() => { 
+        this.setState({ loaded: true })
+        resolve();
+      })
+      .catch(reject);
     });
   }
 
@@ -24,7 +28,7 @@ export class RestaurantModal extends React.Component {
     return new Promise((resolve, reject) => {
 
       this.setState({
-        restaurant: restaurant
+        restaurant
       });
 
       Promise.all([Utils.getMapsKey(), Utils.getYelpKey()]).then(keys => {
@@ -62,12 +66,12 @@ export class RestaurantModal extends React.Component {
     const reviews = this.state.reviews;
 
     if (reviews) {
-      return reviews.splice(0, amount).map(review => 
-        <Review getIndex={getIndex} key={review.author_name} review={review} />
+      return reviews.splice(0, amount).map((review, i) => 
+        <Review getIndex={getIndex} key={i} review={review} />
       );
     }
 
-    return <strong style={{ 'padding-left': '10px' }}>No reviews yet.</strong>
+    return <strong style={{ alignSelf: 'center', margin: 'auto' }}>No reviews yet.</strong>
   }
 
   render() {
@@ -117,7 +121,7 @@ export class RestaurantModal extends React.Component {
       <ReactModal {...props}>
         <ul className="modal-content" tabIndex="-1">
           <li className="modal-titlebar" tabIndex="-1">
-            <h2 className="modal-heading" tabIndex={++tabIndex}>
+            <h2 className="modal-heading" tabIndex={tabIndex += 1}>
               {restaurant.name}
             </h2>
             <button
@@ -127,7 +131,7 @@ export class RestaurantModal extends React.Component {
             />
           </li>
 
-          <li className="modal-map-container" tabIndex={++tabIndex}>
+          <li className="modal-map-container" tabIndex={tabIndex += 1}>
             <img
                 className="modal-map"
                 alt={`Map of the area around ${restaurant.name}`}
@@ -150,13 +154,13 @@ export class RestaurantModal extends React.Component {
             <ul className="modal-reviews-hours">
               <li className="modal-hours">
                 <Hours
-                  getIndex={() => ++tabIndex}
+                  getIndex={() => tabIndex += 1}
                   key={location.lat}
                   hours={this.state.hours}
                 />
               </li>
               <li className="modal-reviews">
-                {this._getReviews(2, () => ++tabIndex)}
+                {this._getReviews(2, () => tabIndex += 1)}
               </li>
             </ul>
           </li>
@@ -166,3 +170,5 @@ export class RestaurantModal extends React.Component {
   }
 
 }
+
+export default RestaurantModal;

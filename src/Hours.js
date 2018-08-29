@@ -12,8 +12,9 @@ const DAYS = [
   'Sunday'
 ]
 
-export class Hours extends React.Component {
+class Hours extends React.Component {
 
+  // eslint-disable-next-line
   _formatTime(militaryTime) {
     militaryTime = `${militaryTime.substring(0, 2)}:${militaryTime.substring(2)}`;
     const date = new Date(`August 27, 2018 ${militaryTime}`);
@@ -22,16 +23,15 @@ export class Hours extends React.Component {
   }
 
   _formatRawHours(hours) {
-    const getIndex = this.props.getIndex;
     const elements = [];
-    for (let i = 0; i < DAYS.length; i++) {
+    for (let i = 0; i < DAYS.length; i += 1) {
       const matching = hours.filter(hourObj => hourObj.day === i);
       elements.push((
-        <li key={i} className="hours-day" tabIndex={getIndex()}>
+        <li key={i} className="hours-day" tabIndex={this.props.getIndex()}>
           {DAYS[i]}:
           <ul className="hours-hours">
             {matching.length === 0 ? <li>Closed</li>
-              : matching.map((m, i) => <li key={i}>{`${this._formatTime(m.start)} until ${this._formatTime(m.end)}`}</li>
+              : matching.map((m, k) => <li key={k}>{`${this._formatTime(m.start)} until ${this._formatTime(m.end)}`}</li>
             )}
           </ul>
         </li>
@@ -49,3 +49,5 @@ export class Hours extends React.Component {
   }
 
 }
+
+export default Hours;

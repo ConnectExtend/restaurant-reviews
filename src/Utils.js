@@ -1,4 +1,4 @@
-export class Utils {
+class Utils {
   
   static getSetting(setting) {
     return new Promise((resolve, reject) => {
@@ -42,3 +42,5 @@ export class Utils {
   }
 
 }
+
+export default Utils;

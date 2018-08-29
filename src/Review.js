@@ -4,11 +4,11 @@ import TextTruncate from 'react-text-truncate';
 
 import './Review.css'
 
-export class Review extends React.Component {
+class Review extends React.Component {
 
   static getLongest(reviews) {
     let longest;
-    for (let i = 0; i < reviews.length; i++) {
+    for (let i = 0; i < reviews.length; i += 1) {
       if (longest === undefined || reviews[i].text.length > longest.text.length) {
         longest = reviews[i];
       }
@@ -18,12 +18,11 @@ export class Review extends React.Component {
 
   render() {
     const review = this.props.review;
-    const getIndex = this.props.getIndex;
     return (
-      <ul tabIndex={getIndex()} className="review">
+      <ul tabIndex={this.props.getIndex()} className="review">
         <li className="review-content">
           <div className="review-info">
-            <strong className="review-author">{review['author_name']}</strong>
+            <strong className="review-author">{review.author_name}</strong>
             <span>&nbsp;- {review.relative_time_description}</span>
           </div>
           <div aria-label={`${review.rating} out of 5 stars`}>
@@ -45,3 +44,5 @@ export class Review extends React.Component {
   }
 
 }
+
+export default Review;

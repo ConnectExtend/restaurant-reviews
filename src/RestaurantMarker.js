@@ -1,10 +1,10 @@
 import React from "react";
-import { Marker, InfoWindow } from "react-google-maps";
 import './RestaurantMarker.css';
+import { Marker, InfoWindow } from 'react-google-maps';
 
 const MARKERS = [];
 
-export class RestaurantMarker extends React.Component {
+class RestaurantMarker extends React.Component {
 
   static show(restaurants) {
     MARKERS.forEach(marker => marker._hide());
@@ -28,14 +28,6 @@ export class RestaurantMarker extends React.Component {
   constructor() {
     super();
     MARKERS.push(this);
-  }
-
-  get restaurant() {
-    return this.props.restaurant;
-  }
-
-  get location() {
-    return this.restaurant.location;
   }
 
   _open() {
@@ -63,16 +55,17 @@ export class RestaurantMarker extends React.Component {
   }
 
   belongsTo(restaurant) {
-    return this.props.restaurant['yelp_id'] === restaurant['yelp_id'];
+    return this.props.restaurant.yelp_id === restaurant.yelp_id;
   }
 
   render() {
     const restaurant = this.props.restaurant;
-    const coords = {
-      lat: restaurant.location.lat,
-      lng: restaurant.location.lng
-    };
     const location = restaurant.location;
+
+    const coords = {
+      lat: location.lat,
+      lng: location.lng
+    };
     
     if (this.state.hidden) {
       return null;
@@ -103,7 +96,7 @@ export class RestaurantMarker extends React.Component {
             </p>
             <p>{location.address}</p>
             <p>
-              {location['postal_code']} {location.city}
+              {location.postal_code} {location.city}
             </p>
             <p className='restaurant-categories'>
               {restaurant.categories.join(', ')}
@@ -115,3 +108,5 @@ export class RestaurantMarker extends React.Component {
   }
   
 }
+
+export default RestaurantMarker;

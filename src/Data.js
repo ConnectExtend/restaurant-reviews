@@ -1,16 +1,16 @@
 import React from 'react';
-import { Utils } from './Utils';
-import { DETAIL_MODAL } from './index';
-import { RestaurantCard } from './RestaurantCard';
 import ReactDOM from 'react-dom';
-import { RestaurantMarker } from './RestaurantMarker';
+import Utils from './Utils';
+import DETAIL_MODAL from './index';
+import RestaurantCard from './RestaurantCard';
+import RestaurantMarker from './RestaurantMarker';
 
 const REVIEW_ENDPOINT = 'https://maps.googleapis.com/maps/api/place/details/json?placeid={id}&fields=reviews&key={key}';
 const HOURS_ENDPOINT = 'https://api.yelp.com/v3/businesses/{id}';
 const CARD_CONTAINER = document.querySelector('#card-container');
 const CUISINE_FILTER = document.querySelector('#cuisines-input');
 
-export class Data {
+class Data {
 
   static renderCards(restaurants) {
     const promise = 
@@ -59,7 +59,7 @@ export class Data {
 
   static getReviews(key, restaurant) {
     return new Promise((resolve, reject) => {
-      Utils.crossFetch(REVIEW_ENDPOINT.replace('{key}', key).replace('{id}', restaurant['place_id']))
+      Utils.crossFetch(REVIEW_ENDPOINT.replace('{key}', key).replace('{id}', restaurant.place_id))
         .then(resp => resp.json())
         .then(json => {
           if (json.status === "OK") {
@@ -76,7 +76,7 @@ export class Data {
       const info = {
         headers: new Headers({ Authorization: `Bearer ${key}` }) 
       }
-      Utils.crossFetch(HOURS_ENDPOINT.replace('{id}', restaurant['yelp_id']), info)
+      Utils.crossFetch(HOURS_ENDPOINT.replace('{id}', restaurant.yelp_id), info)
       .then(resp => resp.json())
       .then(json => resolve(json.hours[0].open))
       .catch(reject);
@@ -86,3 +86,5 @@ export class Data {
 }
 
 CUISINE_FILTER.onchange = () => Data.renderCards();
+
+export default Data;

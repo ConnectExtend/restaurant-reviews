@@ -3,7 +3,7 @@ import './RestaurantCard.css';
 
 const INFO_CLASS = 'restaurant-info';
 
-export class RestaurantCard extends React.Component {
+class RestaurantCard extends React.Component {
 
   render() {
     const restaurant = this.props.restaurant;
@@ -30,3 +30,5 @@ export class RestaurantCard extends React.Component {
   }
 
 }
+
+export default RestaurantCard;

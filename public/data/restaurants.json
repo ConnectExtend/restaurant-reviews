@@ -6,7 +6,7 @@
       "place_id": "ChIJTf-1ZLFhLxMRKZMRFr4hH7k",
       "price": 2,
       "photo": "lacasettaamonti.jpg",
-      "alt": "Exterior view of La Casetta a Monti located in Monti neighborhood",
+      "alt": "Exterior view of La Casetta a Monti located in the Monti neighborhood",
       "location": {
         "lat": 41.894350,
         "lng": 12.490120,
@@ -25,7 +25,7 @@
       "place_id": "ChIJg_trXkdgLxMR-Mu1esO5r9g",
       "price": 2,
       "photo": "labotticella.jpg",
-      "alt": "Exterior view of La Botticella located in Trastevere neighborhood",
+      "alt": "Exterior view of La Botticella located in the Trastevere neighborhood",
       "location": {
         "lat": 41.890300,
         "lng": 12.468110,
@@ -44,7 +44,7 @@
       "place_id": "ChIJJ_LhjUVgLxMRiRPTJRtTk-M",
       "price": 2,
       "photo": "osteriadafortunata.jpg",
-      "alt": "Exterior view of Osteria da Fortunata located in Centro Storico neighborhood",
+      "alt": "Exterior view of Osteria da Fortunata located in the Centro Storico neighborhood",
       "location": {
         "lat": 41.893120,
         "lng": 12.472370,
@@ -63,7 +63,7 @@
       "place_id": "ChIJF4xWFrthLxMRNwZ9j9VBVJo",
       "price": 1,
       "photo": "saporiedelizie.jpg",
-      "alt": "Exterior view of Sapori e Delizie located in Monti neighborhood",
+      "alt": "Exterior view of Sapori e Delizie located in the Monti neighborhood",
       "location": {
         "lat": 41.894920,
         "lng": 12.499010,
@@ -82,7 +82,7 @@
       "place_id": "ChIJYQt9FCxgLxMRFyv95Ul5P-U",
       "price": 3,
       "photo": "sushisen.jpg",
-      "alt": "Interior view of Sushisen located in Testaccio neighborhood",
+      "alt": "Interior view of Sushisen located in the Testaccio neighborhood",
       "location": {
         "lat": 41.875090,
         "lng": 12.479436,
@@ -101,7 +101,7 @@
       "place_id": "ChIJ1SqV9FFgLxMRmzOCXdoR0lg",
       "price": 2,
       "photo": "kisaki.jpg",
-      "alt": "Sushi selections at Kisaki located in Centro Storico neighborhood",
+      "alt": "Sushi selections at Kisaki located in the Centro Storico neighborhood",
       "location": {
         "lat": 41.899810,
         "lng": 12.477830,
@@ -120,7 +120,7 @@
       "place_id": "ChIJm9OoNThgLxMRuNhzBMkwl_A",
       "price": 3,
       "photo": "lagensola.jpg",
-      "alt": "Interior view of La Gensola located in Trastevere neighborhood",
+      "alt": "Interior view of La Gensola located in the Trastevere neighborhood",
       "location": {
         "lat": 41.889380,
         "lng": 12.476440,
@@ -139,7 +139,7 @@
       "place_id": "ChIJ1QJ8Q05gLxMRaHDj2rB-bAU",
       "price": 1,
       "photo": "pandali.jpg",
-      "alt": "Interior view of Pandali located in Centro Storico neighborhood",
+      "alt": "Interior view of Pandali located in the Centro Storico neighborhood",
       "location": {
         "lat": 41.897230,
         "lng": 12.476460,
@@ -158,7 +158,7 @@
       "place_id": "ChIJhS8gpEdgLxMRYa6Yo9dyRnY",
       "price": 1,
       "photo": "trapizzino.png",
-      "alt": "Signature menu item at Trapizzino located in Testaccio neighborhood",
+      "alt": "Signature menu items at Trapizzino located in the Testaccio neighborhood",
       "location": {
         "lat": 41.879620,
         "lng": 12.473700,
@@ -173,6 +173,3 @@
     }
   ]
 }
-
-
-

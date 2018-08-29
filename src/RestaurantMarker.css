@@ -3,8 +3,9 @@
 }
 
 .restaurant-neighborhood {
-  font-style: oblique;
+  font-style: italic;
   padding-bottom: 3px;
+  padding-right: 2px;
 }
 
 .restaurant-categories {

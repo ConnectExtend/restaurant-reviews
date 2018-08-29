@@ -2,7 +2,7 @@
 ---
 
 ## Restaurant Reviews - Project Overview
-A restaurant review site written with ReactJS that is accessible, available offline (via service workers) and responsive. 
+A restaurant review site written with ReactJS that is accessible, available offline (via service worker) and responsive. 
 
 ### Where to start?
 
@@ -18,6 +18,13 @@ The code in this project has been written using ES6 but is backported via Babel 
 * Color contrast ratios are fully-compliant
 * Modal complies with accessibility standards (e.g. it can be closed via `Esc`)
 * Markup passed HTML Validator
+* Lighthouse Accessibility score: 91 (the failing elements are the nine SVG images that are the native markers on the Map)
+
+
+
+###APIs
+* Google Maps API
+* Yelp Fusion API
 
 
 ### Sources referenced
