@@ -6,6 +6,13 @@ const MARKERS = [];
 
 export class RestaurantMarker extends React.Component {
 
+  static show(restaurants) {
+    MARKERS.forEach(marker => marker._hide());
+    MARKERS.filter(
+      m => restaurants.some(r => m.belongsTo(r))
+    ).forEach(marker => marker._show());
+  }
+
   static closeAllMarkers() {
     MARKERS.forEach(marker => marker._close());
   }
@@ -16,7 +23,7 @@ export class RestaurantMarker extends React.Component {
     return bounds;
   }
 
-  state = { open: false };
+  state = { open: false, hidden: false };
 
   constructor() {
     super();
@@ -37,10 +44,26 @@ export class RestaurantMarker extends React.Component {
     });
   }
 
+  _show() {
+    this.setState({
+      hidden: false
+    });
+  }
+
+  _hide() {
+    this.setState({
+      hidden: true
+    });
+  }
+
   _close() {
     this.setState({
       open: false
     });
+  }
+
+  belongsTo(restaurant) {
+    return this.props.restaurant['yelp_id'] === restaurant['yelp_id'];
   }
 
   render() {
@@ -50,9 +73,23 @@ export class RestaurantMarker extends React.Component {
       lng: restaurant.location.lng
     };
     const location = restaurant.location;
+    
+    if (this.state.hidden) {
+      return null;
+    }
+
+    let icon = 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=';
+    
+    if (this.state.open) {
+      icon += '0.75|0|AAA|25|_|%E2%80%A2';
+    } else {
+      icon += '0.75|0|EA4335|25|_|%E2%80%A2';
+    }
+
     return (
       <Marker
         position={coords}
+        icon={icon}
         onClick={() => {
           RestaurantMarker.closeAllMarkers();
           this._open.bind(this)();

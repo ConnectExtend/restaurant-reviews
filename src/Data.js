@@ -3,6 +3,7 @@ import { Utils } from './Utils';
 import { DETAIL_MODAL } from './index';
 import { RestaurantCard } from './RestaurantCard';
 import ReactDOM from 'react-dom';
+import { RestaurantMarker } from './RestaurantMarker';
 
 const REVIEW_ENDPOINT = 'https://maps.googleapis.com/maps/api/place/details/json?placeid={id}&fields=reviews&key={key}';
 const HOURS_ENDPOINT = 'https://api.yelp.com/v3/businesses/{id}';
@@ -40,6 +41,8 @@ export class Data {
       )
 
       ReactDOM.render(cards, CARD_CONTAINER);
+      RestaurantMarker.show(data);
+
 
     });
 

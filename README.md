@@ -17,6 +17,7 @@ The code in this project has been written using ES6 but is backported via Babel 
 ### a11y
 * Color contrast ratios are fully-compliant
 * Modal complies with accessibility standards (e.g. it can be closed via `Esc`)
+* Markup passed HTML Validator
 
 
 ### Sources referenced

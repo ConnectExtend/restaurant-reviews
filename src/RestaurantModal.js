@@ -4,7 +4,6 @@ import { Utils } from './Utils';
 import { Hours } from './Hours';
 import { Review } from './Review';
 import { Data } from './Data';
-import { Scrollbars } from 'react-custom-scrollbars';
 
 import './Loading.css';
 import './RestaurantModal.css';
@@ -68,7 +67,7 @@ export class RestaurantModal extends React.Component {
       );
     }
 
-    return <strong style={{ 'padding-left': '10px' }}>No reviews!</strong>
+    return <strong style={{ 'padding-left': '10px' }}>No reviews yet.</strong>
   }
 
   render() {

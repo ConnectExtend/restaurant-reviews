@@ -5,12 +5,12 @@
 
 .restaurant-card {
   border: 2px solid var(--background-gray);
-  margin: 15px;
   display: flex;
   flex-direction: column;
-  min-height: 380px;
-  min-width: 270px;
+  margin: 15px;
   max-width: 300px;
+  min-height: 370px;
+  min-width: 270px;  
 }
 
 /* insert media queries for #restaurants-list li */
@@ -25,16 +25,21 @@
   color: var(--card-red);
   font-size: 19px;
   font-weight: 600;
-  margin: 12px 0 10px;
+  margin: 12px 0 1px;
   padding-left: 7px;
   text-transform: uppercase;
 }
 
 .restaurant-info {
-  margin: 0;
-  padding: 0 0 0 10px;
   font-size: 17px;
   line-height: 1.15;
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+
+.restaurant-info:first-of-type {
+  font-style: italic;
+  padding: 5px 0 5px 8px;
 }
 
 .restaurant-details-button {

@@ -40,16 +40,16 @@ button:focus {
 }
 
 #main-heading {
+  background-color: #0e2668;  
   font-size: 1.5em;
   font-weight: 200;
   letter-spacing: 5px;
-  word-spacing: .5em;
+  margin: 0;
   padding: 20px 0;
   text-align: center;
   text-transform: uppercase;
-  background-color: #0e2668;
-  width: 100%;
-
+  width: 100%;  
+  word-spacing: .5em;
 }
 
 #main-heading a {
@@ -70,9 +70,8 @@ button:focus {
 
 #filter-options {
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   background-color: #4b86b4;
 }
@@ -84,7 +83,7 @@ button:focus {
   height: 35px;
   margin: 20px 35px 15px 0;
   padding: 0 8px;
-  width: 285px;
+  width: 225px;
 }
 
 #restaurants-list {
@@ -93,7 +92,7 @@ button:focus {
   justify-content: center;
   background-color: #f3f3f3;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 30px 15px 30px;
 }
 
 #footer {
@@ -117,7 +116,7 @@ button:focus {
 }
 
 #cuisines-input-label {
-  position: absolute !important;
+  position: absolute;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }

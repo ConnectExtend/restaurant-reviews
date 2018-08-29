@@ -26,9 +26,7 @@ export class Review extends React.Component {
             <strong className="review-author">{review['author_name']}</strong>
             <span>&nbsp;- {review.relative_time_description}</span>
           </div>
-          <div 
-            aria-label={`${review.rating} out of 5 ${review.rating === 1 ? 'star' : 'stars'}`}
-          >
+          <div aria-label={`${review.rating} out of 5 stars`}>
             <StarRatingComponent
               editing={false}
               name="review-star"

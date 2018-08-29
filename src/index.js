@@ -6,12 +6,11 @@ import registerServiceWorker from './registerServiceWorker';
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
 import { Utils } from './Utils';
 import { Data } from './Data';
-import { RestaurantCard } from './RestaurantCard';
 import { RestaurantModal } from './RestaurantModal';
 import ReactModal from 'react-modal';
 
 const MAP_CONTAINER = document.querySelector('#map-container');
-const DEFAULT_CENTER = { lat: 41.8878, lng: 12.5064 };
+const DEFAULT_CENTER = { lat: 41.8878, lng: 12.4844 };
 const DEFAULT_ZOOM = 13;
 const MODAL_CONTAINER = document.querySelector('#modal-container');
 export const DETAIL_MODAL = ReactDOM.render(<RestaurantModal />, MODAL_CONTAINER);

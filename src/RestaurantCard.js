@@ -12,7 +12,7 @@ export class RestaurantCard extends React.Component {
       <li className='restaurant-card' tabIndex="0">
         <img
           src={`img/${restaurant.photo}`}
-          alt={restaurant.alt || ''}
+          alt={restaurant.alt}
           className='restaurant-thumbnail'
         />
         <h2 className='restaurant-heading'>{restaurant.name}</h2>
