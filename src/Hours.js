@@ -22,11 +22,12 @@ export class Hours extends React.Component {
   }
 
   _formatRawHours(hours) {
+    const getIndex = this.props.getIndex;
     const elements = [];
     for (let i = 0; i < DAYS.length; i++) {
       const matching = hours.filter(hourObj => hourObj.day === i);
       elements.push((
-        <li key={i} className="hours-day">
+        <li key={i} className="hours-day" tabIndex={getIndex()}>
           {DAYS[i]}:
           <ul className="hours-hours">
             {matching.length === 0 ? <li>Closed</li>

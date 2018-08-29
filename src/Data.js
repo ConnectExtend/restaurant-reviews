@@ -7,17 +7,29 @@ import ReactDOM from 'react-dom';
 const REVIEW_ENDPOINT = 'https://maps.googleapis.com/maps/api/place/details/json?placeid={id}&fields=reviews&key={key}';
 const HOURS_ENDPOINT = 'https://api.yelp.com/v3/businesses/{id}';
 const CARD_CONTAINER = document.querySelector('#card-container');
+const CUISINE_FILTER = document.querySelector('#cuisines-input');
 
 export class Data {
 
   static renderCards(restaurants) {
     const promise = 
         restaurants ? Promise.resolve(restaurants) : Data.getRestaurants();
+
+    const allowedCuisine = CUISINE_FILTER.value;
+
     promise.then(data => {
+
+      if (allowedCuisine !== 'all') {
+        data = data.filter(r =>
+            r.categories.some(
+              c => c.toUpperCase() === allowedCuisine.toUpperCase()
+            )
+        );
+      }
 
       const cards = (
         <ul id='restaurants-list'>
-          {restaurants.map((r, i) => (
+          {data.map((r, i) => (
             <RestaurantCard
               key={i}
               restaurant={r}
@@ -69,3 +81,5 @@ export class Data {
   }
 
 }
+
+CUISINE_FILTER.onchange = () => Data.renderCards();

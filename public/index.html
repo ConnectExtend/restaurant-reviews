@@ -29,24 +29,17 @@
 
       <section>
         <div id="filter-options">
-          <!-- insert ARIA <label></label>  -->
           <form role="form">
-            <select id="cuisines-select" name="cuisines">
+            <label id="cuisines-input-label" for="cuisines-input">
+              Cuisine Filter
+            </label>
+            <select id="cuisines-input" name="cuisines">
               <option value="all">&#128269; All Cuisines</option>
-            </select>
-          </form>
-
-          <!-- insert ARIA <label></label>  -->
-          <form role="form">
-            <select id="cuisines-select" name="cuisines">
-              <option value="all">&#128269; All Neighborhoods</option>
-            </select>
-          </form>
-
-          <!-- insert ARIA <label></label>  -->
-          <form role="form">
-            <select id="cuisines-select" name="cuisines">
-              <option value="all">&#128269; Cost</option>
+              <option value="seafood">Seafood</option>
+              <option value="pizza">Pizza</option>
+              <option value="ramen">Ramen</option>
+              <option value="gluten-free">Gluten-Free</option>
+              <option value="italian">Italian</option>
             </select>
           </form>
         </div>

@@ -29,3 +29,5 @@ The code in this project has been written using ES6 but is backported via Babel 
 * https://github.com/tomchentw/react-google-maps
 
 * https://loading.io/spinner/double-ring
+
+* https://webaim.org/techniques/css/invisiblecontent/

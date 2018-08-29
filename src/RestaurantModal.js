@@ -59,12 +59,12 @@ export class RestaurantModal extends React.Component {
     this.setState({ isOpen: false });
   }
 
-  _getReviews(amount) {
+  _getReviews(amount, getIndex) {
     const reviews = this.state.reviews;
 
     if (reviews) {
       return reviews.splice(0, amount).map(review => 
-        <Review key={review.author_name} review={review} />
+        <Review getIndex={getIndex} key={review.author_name} review={review} />
       );
     }
 
@@ -78,6 +78,7 @@ export class RestaurantModal extends React.Component {
       onRequestClose: () => this.close.bind(this)(),
       contentLabel: "Restaurant Details",
       className: "modal",
+      role: "dialog",
       overlayClassName: "modal-overlay"
     };
 
@@ -111,20 +112,26 @@ export class RestaurantModal extends React.Component {
     const restaurant = this.state.restaurant;
     const location = restaurant.location;
     const mapsKey = this.state.mapsKey;
+    let tabIndex = 0;
 
     return (
       <ReactModal {...props}>
-        <ul className="modal-content">
-          <li className="modal-titlebar">
-            <h2 className="modal-heading">
+        <ul className="modal-content" tabIndex="-1">
+          <li className="modal-titlebar" tabIndex="-1">
+            <h2 className="modal-heading" tabIndex={++tabIndex}>
               {restaurant.name}
             </h2>
-            <button className="modal-close-button" onClick={this.close.bind(this)}/>
+            <button
+              className="modal-close-button"
+              onClick={this.close.bind(this)}
+              tabIndex="-1"
+            />
           </li>
 
-          <li className="modal-map-container">
+          <li className="modal-map-container" tabIndex={++tabIndex}>
             <img
                 className="modal-map"
+                alt={`Map of the area around ${restaurant.name}`}
                 src={Utils.getStaticMap(mapsKey, {
                   lat: location.lat,
                   lng: location.lng,
@@ -143,10 +150,14 @@ export class RestaurantModal extends React.Component {
           <li>
             <ul className="modal-reviews-hours">
               <li className="modal-hours">
-                <Hours key={location.lat} hours={this.state.hours}/>
+                <Hours
+                  getIndex={() => ++tabIndex}
+                  key={location.lat}
+                  hours={this.state.hours}
+                />
               </li>
               <li className="modal-reviews">
-                {this._getReviews(2)}
+                {this._getReviews(2, () => ++tabIndex)}
               </li>
             </ul>
           </li>
