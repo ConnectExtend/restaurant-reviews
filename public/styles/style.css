@@ -78,12 +78,16 @@ button:focus {
 
 #filter-options select {
   background-color: #fff;
-  border: 1px solid #fff;
   font-size: 1.2em;
   height: 35px;
   margin: 20px 35px 15px 0;
   padding: 0 8px;
   width: 225px;
+}
+
+#cuisines-input-label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 #restaurants-list {
@@ -102,9 +106,9 @@ button:focus {
   letter-spacing: 1px;
   padding: 12px 0 7px;
   text-align: center;
-  text-transform: uppercase;
   flex-shrink: 0;
 }
+
 
 #footer p {
   font-size: inherit;
@@ -115,8 +119,9 @@ button:focus {
   text-decoration: none;
 }
 
-#cuisines-input-label {
-  position: absolute;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
+
+.copyright {
+  text-transform: uppercase;
+  padding-top: 5px;
 }
+
