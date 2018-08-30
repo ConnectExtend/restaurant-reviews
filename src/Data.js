@@ -77,9 +77,9 @@ class Data {
         headers: new Headers({ Authorization: `Bearer ${key}` }) 
       }
       Utils.crossFetch(HOURS_ENDPOINT.replace('{id}', restaurant.yelp_id), info)
-      .then(resp => resp.json())
-      .then(json => resolve(json.hours[0].open))
-      .catch(reject);
+        .then(resp => resp.json())
+        .then(json => resolve(json.hours[0].open))
+        .catch(reject);
     });
   }
 

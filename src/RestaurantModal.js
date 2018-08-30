@@ -71,7 +71,7 @@ class RestaurantModal extends React.Component {
       );
     }
 
-    return <strong style={{ alignSelf: 'center', margin: 'auto' }}>No reviews yet.</strong>
+    return <strong className="modal-no-reviews">No reviews yet.</strong>
   }
 
   render() {

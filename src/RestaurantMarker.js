@@ -71,7 +71,7 @@ class RestaurantMarker extends React.Component {
       return null;
     }
 
-    let icon = 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=';
+    let icon = 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=';
     
     if (this.state.open) {
       icon += '0.75|0|AAA|25|_|%E2%80%A2';

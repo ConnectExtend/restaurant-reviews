@@ -27,20 +27,34 @@ Utils.getMapsKey().then(key => {
         loadingElement: <div style={{ height: `100%` }} />,
         containerElement: <div style={{ height: `400px` }} />,
         mapElement: <div style={{ height: `100%` }} />,
-      }),
-      withScriptjs,
-      withGoogleMap
-    )(props => (
-      <GoogleMap {...props}
-        defaultZoom={DEFAULT_ZOOM}
-        defaultCenter={DEFAULT_CENTER}
-        options={{
+        defaultZoom: DEFAULT_ZOOM,
+        defaultCenter: DEFAULT_CENTER,
+        onIdle: () => {
+          // add alt text to google maps images that don't have any
+          Utils.waitFor(
+            () => document.getElementsByClassName('gm-control-active').length >= 5
+          ).then(() => {
+              Array.from(document.getElementsByTagName("img"))
+                // google maps image use data URIs
+                .filter(img => (img.src || '').indexOf('data') !== -1)
+                .filter(img => (img.parentElement || img).tagName === 'BUTTON')
+                .forEach(img => {
+                  img.alt = img.parentElement.getAttribute('aria-label');
+                });
+              }
+          );
+        },
+        options: {
           gestureHandling: 'cooperative',
           streetViewControl: false,
           disableDoubleClickZoom: true,
           mapTypeControl: false
-        }}
-      >
+        }
+      }),
+      withScriptjs,
+      withGoogleMap
+    )(props => (
+      <GoogleMap {...props}>
         {
           restaurants.map((r, i) => <RestaurantMarker key={i} restaurant={r} />)
         }

@@ -1,3 +1,5 @@
+const CORS_ANYWHERE_ENDPOINT = 'https://go-away-cors.herokuapp.com';
+
 class Utils {
   
   static getSetting(setting) {
@@ -22,7 +24,7 @@ class Utils {
   }
 
   static crossFetch(url, data) {
-    return fetch(`https://cors-anywhere.herokuapp.com/${url}`, data);
+    return fetch(`${CORS_ANYWHERE_ENDPOINT}/${url}`, data);
   }
 
   /**
@@ -39,6 +41,19 @@ class Utils {
       `${marker.lat},${marker.lng}`].join('|')
     )
     return `https://maps.googleapis.com/maps/api/staticmap?center=${props.lat},${props.lng}&zoom=13&size=${props.width}x${props.height}&maptype=${props.type || 'roadmap'}${markers.join('')}&key=${key}`;
+  }
+
+  static waitFor(predicate, delay) {
+    return new Promise(resolve => {
+      delay = delay || 1;
+      
+      const checker = setInterval(() => {
+        if (predicate()) {
+          resolve();
+          clearInterval(checker);
+        }
+      }, delay);
+    })
   }
 
 }

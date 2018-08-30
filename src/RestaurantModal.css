@@ -2,7 +2,8 @@
 .modal-titlebar,
 .modal-content,
 .modal-map-container,
-.modal-hours {
+.modal-hours,
+.modal-reviews {
   display: flex;
 }
 
@@ -87,6 +88,14 @@
 
 .modal-hours {
   min-width: 45%;
+}
+
+.modal-reviews {
+  flex-direction: column;
+}
+
+.modal-no-reviews {
+  margin: 20px 0 0 20px;
 }
 
 .modal-overlay {
