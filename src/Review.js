@@ -6,16 +6,6 @@ import './Review.css'
 
 class Review extends React.Component {
 
-  static getLongest(reviews) {
-    let longest;
-    for (let i = 0; i < reviews.length; i += 1) {
-      if (longest === undefined || reviews[i].text.length > longest.text.length) {
-        longest = reviews[i];
-      }
-    }
-    return longest;
-  }
-
   render() {
     const review = this.props.review;
     return (

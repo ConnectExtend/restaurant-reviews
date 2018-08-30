@@ -6,6 +6,10 @@ const MARKERS = [];
 
 class RestaurantMarker extends React.Component {
 
+  /**
+   * Rerenders the restaurant markers to only show
+   * the ones within {@param restaurants}
+   */
   static show(restaurants) {
     MARKERS.forEach(marker => marker._hide());
     MARKERS.filter(
@@ -13,14 +17,11 @@ class RestaurantMarker extends React.Component {
     ).forEach(marker => marker._show());
   }
 
+  /**
+   * Closes the info windows of all markers
+   */
   static closeAllMarkers() {
     MARKERS.forEach(marker => marker._close());
-  }
-
-  static getFittingBounds() {
-    const bounds = new window.google.maps.LatLngBounds();
-    MARKERS.forEach(m => bounds.extend(m.props.position));
-    return bounds;
   }
 
   state = { open: false, hidden: false };
@@ -30,30 +31,47 @@ class RestaurantMarker extends React.Component {
     MARKERS.push(this);
   }
 
-  _open() {
-    this.setState({
-      open: true
-    });
-  }
-
+  /**
+   * Shows this marker on the map
+   */
   _show() {
     this.setState({
       hidden: false
     });
   }
 
+  /**
+   * Hides this marker on the map
+   */
   _hide() {
     this.setState({
       hidden: true
     });
   }
 
+  /**
+   * Opens the info window of this marker
+   */
+  _open() {
+    this.setState({
+      open: true
+    });
+  }
+
+  /**
+   * Closes the info window of this marker
+   */
   _close() {
     this.setState({
       open: false
     });
   }
 
+  /**
+   * Returns whether or not this marker represents {@param restaurant}
+   * 
+   * @param {*} restaurant the potential owner of this marker
+   */
   belongsTo(restaurant) {
     return this.props.restaurant.yelp_id === restaurant.yelp_id;
   }
@@ -73,6 +91,7 @@ class RestaurantMarker extends React.Component {
 
     let icon = 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=';
     
+    // change this color based on whether or not the window is open
     if (this.state.open) {
       icon += '0.75|0|AAA|25|_|%E2%80%A2';
     } else {

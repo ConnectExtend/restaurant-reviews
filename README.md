@@ -1,36 +1,42 @@
-## FEND Certification Course
+## Udacity FEND Certification Course
 ---
 
 ## Restaurant Reviews - Project Overview
 A restaurant review site written with ReactJS that is accessible, available offline (via service worker), and responsive. 
 
 ### Where to start?
-1. Clone the repo
-2. Put your API keys in `public/settings.json`
-3. Open a command prompt in the cloned repo
-4. Run `yarn start` and the website will open in your default browser
+1. Install Git, NodeJS, Yarn and Python if not already installed
+2. Clone the repo via `git clone <repository url>`
+3. Put your API keys in `public/data/settings.json`
+4. Open a command prompt in the cloned repo
+5. Run `yarn install` in the opened cmd
+6. Run `yarn build` in the opened cmd
+7. CD into the build folder via `cd build` in the opened cmd
+8. Start a http server in the build folder:
+    * If you use Python 3, run `python3 -m http.server 5423`
+        * Depending on your Python setup, you may have to use `python` instead of `python3`
+    * If you use Python 2, run `python -m SimpleHTTPServer 5423`
+9. Navigate to `localhost:5423` in a modern browser
 
-### Note about the JS files
-The code in this project has been written using ES6, but is backported via Babel during transpilation.
-
-### Technology stack
-* ReactJS 16
+### Technology used
+* ReactJS
 * JavaScript ES6 (backported via Babel during transpilation)
-* CSS, including Flexbox and Variables
+* CSS, including Flexbox and variables
 * HTML5
 
 ### Validation
 * HTML Validator - passed
-* CSS - each file passed
-* JavaScript - ESLint
-* React - ESLint for React
+* CSS - passed
+* ESLint - passed
 
 ### a11y
 * Color contrast ratios are fully-compliant
 * Modal complies with accessibility standards (e.g. it can be closed via `Esc`)
 * Logical tab order
-* Lighthouse Accessibility score: 100
-*  (insert imgur of Lighthouse)
+
+
+## Lighthouse
+![Lighthouse audit results](https://i.imgur.com/C7Lix1u.png)
 
 ### APIs
 * Google Maps API
