@@ -13,8 +13,6 @@
   min-width: 270px;  
 }
 
-/* insert media queries for #restaurants-list li */
-
 .restaurant-thumbnail {
   display: block;
   max-width: 100%;

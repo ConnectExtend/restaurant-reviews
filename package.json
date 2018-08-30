@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "babel-eslint": "^9.0.0",
+    "cra-append-sw": "^2.5.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.0.1",
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cra-append-sw --skip-compile --mode replace ./public/service-worker.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
