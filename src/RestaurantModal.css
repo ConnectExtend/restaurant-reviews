@@ -96,6 +96,7 @@
 
 .modal-no-reviews {
   margin: 20px 0 0 20px;
+  font-size: 1.1em;
 }
 
 .modal-overlay {
@@ -111,4 +112,47 @@
   margin: auto;
   line-height: 3em;
   text-align: center;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 649px) {
+
+  .modal-heading {
+    font-size: 1.3em;
+  }
+
+  .modal-reviews-hours {
+    flex-direction: column;
+  }
+
+  .hours-container {
+    padding: 0;
+  }
+
+  .modal-hours {
+    order: 1;
+    margin: 0 auto;
+  }
+
+  .hours-day,
+  .hours-hours {
+    text-indent: 0;
+    font-size: .9em;
+  }
+
+  .modal-reviews {
+    flex-direction: column;
+  }
+
+  .review-content {
+    font-size: .9em;
+  }
+
+  .modal-no-reviews {
+    margin: 20px auto;
+    font-size: 1.2em;
+  }
+
 }

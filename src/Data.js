@@ -1,4 +1,3 @@
-import React from 'react';
 import Utils from './Utils';
 
 const REVIEW_ENDPOINT = 'https://maps.googleapis.com/maps/api/place/details/json?placeid={id}&fields=reviews&key={key}';
