@@ -9,7 +9,7 @@ class Review extends React.Component {
   render() {
     const review = this.props.review;
     return (
-      <ul tabIndex={this.props.getIndex()} className="review">
+      <ul tabIndex="0" className="review">
         <li className="review-content">
           <div className="review-info">
             <strong className="review-author">{review.author_name}</strong>

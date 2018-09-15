@@ -59,6 +59,15 @@ function renderRestaurantComponents(restaurants) {
   });
 }
 
+window.gm_authFailure = () => {
+  Array.from(MAP_CONTAINER.children)
+      .forEach(child => MAP_CONTAINER.removeChild(child));
+  const error = document.createElement('p');
+  error.innerHTML = 'Map failed to load';
+  error.classList.add('map-failure');
+  MAP_CONTAINER.appendChild(error);
+}
+
 Utils.getMapsKey().then(key => {
 
   Data.getRestaurants().then(restaurants => {
@@ -66,9 +75,9 @@ Utils.getMapsKey().then(key => {
     const RestaurantMap = compose(
       withProps({
         googleMapURL: Utils.getMapsURL(key),
-        loadingElement: <div style={{ height: `100%` }} />,
-        containerElement: <div style={{ height: `400px` }} />,
-        mapElement: <div style={{ height: `100%` }} />,
+        loadingElement: <div style={{ height: '100%' }} />,
+        containerElement: <div style={{ height: '400px' }} />,
+        mapElement: <div style={{ height: '100%' }} />,
         defaultZoom: DEFAULT_ZOOM,
         defaultCenter: DEFAULT_CENTER,
         onIdle: () => {
@@ -116,6 +125,6 @@ Utils.getMapsKey().then(key => {
 registerServiceWorker();
 
 // when the filter changes, filter the restaurant components accordingly
-CUISINE_FILTER.onchange = renderRestaurantComponents;
+CUISINE_FILTER.onchange = () => renderRestaurantComponents();
 
 export default DETAIL_MODAL;

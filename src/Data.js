@@ -22,7 +22,7 @@ class Data {
           if (json.status === "OK") {
             resolve(json.result.reviews);
           } else {
-            reject(new Error(json.result.status));
+            reject(new Error(json.status));
           }
         }).catch(reject);
     });

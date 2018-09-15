@@ -115,13 +115,12 @@ class RestaurantModal extends React.Component {
     const restaurant = this.state.restaurant;
     const location = restaurant.location;
     const mapsKey = this.state.mapsKey;
-    let tabIndex = 0;
 
     return (
       <ReactModal {...props}>
         <ul className="modal-content" tabIndex="-1">
           <li className="modal-titlebar" tabIndex="-1">
-            <h2 className="modal-heading" tabIndex={tabIndex += 1}>
+            <h2 className="modal-heading" tabIndex="0">
               {restaurant.name}
             </h2>
             <button
@@ -131,9 +130,10 @@ class RestaurantModal extends React.Component {
             />
           </li>
 
-          <li className="modal-map-container" tabIndex={tabIndex += 1}>
+          <li className="modal-map-container">
             <img
                 className="modal-map"
+                tabIndex="0"
                 alt={`Map of the area around ${restaurant.name}`}
                 src={Utils.getStaticMap(mapsKey, {
                   lat: location.lat,
@@ -154,13 +154,12 @@ class RestaurantModal extends React.Component {
             <ul className="modal-reviews-hours">
               <li className="modal-hours">
                 <Hours
-                  getIndex={() => tabIndex += 1}
                   key={location.lat}
                   hours={this.state.hours}
                 />
               </li>
               <li className="modal-reviews">
-                {this._getReviews(2, () => tabIndex += 1)}
+                {this._getReviews(2)}
               </li>
             </ul>
           </li>

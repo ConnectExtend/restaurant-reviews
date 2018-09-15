@@ -10,7 +10,7 @@ const DAYS = [
   'Friday',
   'Saturday',
   'Sunday'
-]
+];
 
 class Hours extends React.Component {
 
@@ -27,7 +27,7 @@ class Hours extends React.Component {
     for (let i = 0; i < DAYS.length; i += 1) {
       const matching = hours.filter(hourObj => hourObj.day === i);
       elements.push((
-        <li key={i} className="hours-day" tabIndex={this.props.getIndex()}>
+        <li key={i} className="hours-day" tabIndex="0">
           {DAYS[i]}:
           <ul className="hours-hours">
             {matching.length === 0 ? <li>Closed</li>
